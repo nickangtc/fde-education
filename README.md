@@ -1,9 +1,9 @@
 # fde-education
 
-Personal self-education repo for learning LLM primitives.
+Personal self-education repo for learning enough about the inner workings of LLMs to be a dangerous FDE (Forward Deployed Engineer).
 
 Starting point:
-- `llm-primitives/` for terminal-first experiments with observable LLM chains
+- `llm-primitives/` for terminal-first experiments with the OpenAI SDK and Anthropic SDK
 - local env setup for API keys and related config
 
 Working principle for this repo:
