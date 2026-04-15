@@ -17,9 +17,14 @@ if (!process.env.OPENAI_API_KEY) {
   process.exit(1);
 }
 
+if (!process.env.OPENAI_MODEL) {
+  console.error("Missing OPENAI_MODEL in your environment or .env file.");
+  process.exit(1);
+}
+
 try {
   const response = await client.responses.create({
-    model: "gpt-4.1-mini",
+    model: process.env.OPENAI_MODEL,
     input: "Say hello in one short sentence for a JavaScript SDK demo.",
   });
 

@@ -25,4 +25,4 @@ Run the first example:
 npm run hello
 ```
 
-This reads `OPENAI_API_KEY` from the repo root `.env` file and makes a single basic call using the OpenAI JavaScript SDK.
+This reads `OPENAI_API_KEY` and `OPENAI_MODEL` from the repo root `.env` file and makes a single basic call using the OpenAI JavaScript SDK.
