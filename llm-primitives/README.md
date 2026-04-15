@@ -10,3 +10,19 @@ Planned areas to explore:
 - tool calling
 - streaming
 - eval-style experiments
+
+## OpenAI JS hello world
+
+Install dependencies:
+
+```bash
+npm install
+```
+
+Run the first example:
+
+```bash
+npm run hello
+```
+
+This reads `OPENAI_API_KEY` from the repo root `.env` file and makes a single basic call using the OpenAI JavaScript SDK.
