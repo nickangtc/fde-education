@@ -93,3 +93,57 @@ npm run model-routing-workflow
 ```
 
 Then choose a numbered example and press Enter.
+
+## Parallel sectioning review workflow demo
+
+This demo shows sectioning-style parallelization from the Anthropic article:
+one Substack post is reviewed by four independent reviewers at the same time,
+and their outputs are then aggregated into one final editorial report.
+
+The flow is:
+
+1. Choose one of three real Substack post fixtures stored as Markdown files.
+2. Fan out into four parallel reviews:
+   - clarity
+   - structure
+   - audience fit
+   - hook and memorability
+3. Wait for all reviewers to complete.
+4. Run one aggregator step over the four review outputs.
+5. Show the final recommendation and revision plan.
+
+Unlike the other demos, the CLI redraws a simple terminal diagram so you can
+watch the workflow progress without interleaved request dumps.
+
+Run it with:
+
+```bash
+npm run parallel-sectioning-review-workflow
+```
+
+## Parallel voting headline workflow demo
+
+This demo shows voting-style parallelization: one Substack post is used to
+generate several candidate headlines, then multiple judges vote on the best
+option in parallel before an aggregator picks the winner.
+
+If the judges produce a clear winner, the workflow stops there. The aggregator
+only runs on tied results, and in that case it sees the original article so it can break the tie intelligently.
+
+The flow is:
+
+1. Choose one of three real Substack post fixtures.
+2. Generate four headline candidates.
+3. Fan those candidates out to four parallel judges:
+   - curiosity
+   - clarity
+   - audience fit
+   - distinctiveness
+4. Aggregate the votes and surface one winning headline.
+5. Show the winner, vote summary, and a refinement suggestion.
+
+Run it with:
+
+```bash
+npm run parallel-voting-headline-workflow
+```
