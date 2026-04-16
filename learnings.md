@@ -34,4 +34,4 @@ The benefits of keeping them separate are:
 - easier debugging, because an odd final answer can usually be traced to one self-contained step instead of hidden carry-over state
 - clearer program boundaries, since the code must explicitly pass the plan and worker outputs back into the final step
 
-The tradeoff is that a linked conversation can sometimes improve continuity, especially in longer agentic loops. But for a small teaching workflow like the minimal orchestrator-workers example, explicit handoff between separate calls can make the behavior easier to understand, inspect, and trust.
+The tradeoff is that a linked conversation can sometimes improve continuity, especially in longer agentic loops. But the explicit handoff between separate calls can make the behavior easier to understand, inspect, and trust.
