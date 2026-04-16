@@ -4,7 +4,7 @@
   "private": true,
   "type": "module",
   "scripts": {
-    "hello": "node hello.js"
+    "prompt-chain": "node prompt-chain-cli.js"
   },
   "dependencies": {
     "dotenv": "^17.2.3",
