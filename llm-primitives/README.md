@@ -8,6 +8,9 @@ CLI runs.
 For this package, the terminal is the interface. Environment variables stay local,
 and each chain prints its request and response steps directly in the CLI.
 
+Many of the workflow examples here are inspired by Anthropic's article
+["Building effective agents"](https://www.anthropic.com/engineering/building-effective-agents).
+
 ## Prompt chaining workflow demo
 
 This demo uses the OpenAI Responses API with `gpt-5.4-mini` for two linked steps:
