@@ -35,3 +35,18 @@ The benefits of keeping them separate are:
 - clearer program boundaries, since the code must explicitly pass the plan and worker outputs back into the final step
 
 The tradeoff is that a linked conversation can sometimes improve continuity, especially in longer agentic loops. But the explicit handoff between separate calls can make the behavior easier to understand, inspect, and trust.
+
+## Evaluator-Optimizer Loops Need A Best-So-Far Anchor
+
+While building the evaluator-optimizer LinkedIn workflow in [`llm-primitives/`](./llm-primitives/README.md), one important behavior showed up quickly: simply adding a generator -> evaluator -> generator loop does not automatically produce better outputs on every round.
+
+The first implementation passed the latest draft and the latest feedback into the next generator call. That sounds reasonable, but in practice it allowed the model to overcorrect. A round that fixed one weakness could easily throw away strengths from the previous round, causing the evaluator score to dip instead of climb.
+
+The better design was to keep track of the highest-scoring draft so far and use that as the revision base for future rounds. In practice, this means:
+
+- keep the original source material in every generation round
+- retain the latest evaluator critique
+- also pass the best-scoring draft so far back into the generator
+- explicitly tell the generator to preserve praised strengths unless a revision instruction requires changing them
+
+The key lesson is that an evaluator-optimizer workflow needs a hill-climbing mechanism, not just a feedback loop. Without a best-so-far anchor, iteration can drift. With it, the scores are more likely to trend upward across rounds instead of bouncing around unpredictably.

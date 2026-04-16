@@ -176,3 +176,25 @@ Run it with:
 ```bash
 npm run orchestrator-workers-substack-workflow
 ```
+
+## Evaluator-optimizer LinkedIn workflow demo
+
+This demo shows the evaluator-optimizer pattern from the Anthropic article:
+one model generates a LinkedIn post draft from a Substack-style article while a
+second model evaluates that draft against a voice rubric and sends it back for
+revision.
+
+The flow is:
+
+1. Choose one of three real Substack post fixtures.
+2. Load the Nick Ang LinkedIn voice rubric from `data/nickang-linkedin-voice-rubric.md`.
+3. Generate a LinkedIn draft.
+4. Evaluate the draft across the rubric dimensions and assign a score.
+5. Loop draft -> critique -> revision until the score is strong enough or the workflow hits the five-round cap.
+6. Show the final draft plus the evaluator's final verdict.
+
+Run it with:
+
+```bash
+npm run evaluator-optimizer-linkedin-workflow
+```
