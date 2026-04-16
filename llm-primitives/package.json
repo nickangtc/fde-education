@@ -5,6 +5,7 @@
   "type": "module",
   "scripts": {
     "prompt-chaining-workflow": "node prompt-chaining-workflow-cli.js",
+    "tool-calling-workflow": "node tool-calling-workflow-cli.js",
     "content-routing-workflow": "node content-routing-workflow-cli.js",
     "model-routing-workflow": "node model-routing-workflow-cli.js",
     "parallel-sectioning-review-workflow": "node parallel-sectioning-review-workflow-cli.js",

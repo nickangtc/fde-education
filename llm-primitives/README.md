@@ -45,6 +45,31 @@ You can also pass a custom brief and target language:
 node prompt-chaining-workflow-cli.js "Album helps close friends share private family memories." "French"
 ```
 
+## Tool-calling Substack workflow demo
+
+This demo shows the smallest useful function-tool pattern in the repo: the model
+can inspect local Substack fixtures by calling two simple tools.
+
+The flow is:
+
+1. Send a user prompt to the OpenAI Responses API.
+2. Let the model call `list_substack_fixtures` when it needs to discover what is available.
+3. Let the model call `read_substack_fixture` when it wants the full Markdown for one post.
+4. Print each tool call in the terminal.
+5. Show a truncated preview of the tool output before the model writes its final answer.
+
+Run it with:
+
+```bash
+npm run tool-calling-workflow
+```
+
+You can also pass a custom prompt:
+
+```bash
+node tool-calling-workflow-cli.js "List the fixtures, read the one about Instagram growth, and summarize it in two sentences."
+```
+
 ## Content routing workflow demo
 
 This demo uses the OpenAI Responses API with `gpt-5.4-mini` for a simple routing
