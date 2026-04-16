@@ -4,7 +4,9 @@
   "private": true,
   "type": "module",
   "scripts": {
-    "prompt-chain": "node prompt-chain-cli.js"
+    "prompt-chain": "node prompt-chain-cli.js",
+    "content-routing-workflow": "node content-routing-workflow-cli.js",
+    "model-routing-workflow": "node model-routing-workflow-cli.js"
   },
   "dependencies": {
     "dotenv": "^17.2.3",
