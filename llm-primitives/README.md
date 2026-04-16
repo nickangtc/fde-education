@@ -8,8 +8,8 @@ CLI runs.
 For this package, the terminal is the interface. Environment variables stay local,
 and each chain prints its request and response steps directly in the CLI.
 
-Many of the workflow examples here are inspired by Anthropic's article
-["Building effective agents"](https://www.anthropic.com/engineering/building-effective-agents).
+Many of the workflow examples here are inspired by the Anthropic workflow article
+listed in the repo's [resources.md](/Users/nickang/code/fde-education/resources.md).
 
 ## Prompt chaining workflow demo
 
