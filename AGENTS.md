@@ -8,6 +8,7 @@
 - For routing demos intended for teaching, prefer small interactive menus with hard-coded examples so different branches can be exercised predictably from the terminal.
 - For CLI-based demos, add a proper `--help` path instead of letting help flags fall through as example input.
 - Capture reusable design insights from workflow experiments in the repo-root `learnings.md`, especially when a prompting or orchestration detail changes output quality.
+- Use the repo-local `add-learning` skill when the user asks to add, refine, or capture a learning in `learnings.md`.
 - Keep shared external references in the repo-root `resources.md`, and link to that file from sub-READMEs instead of repeating raw source links in multiple places.
 
 ## Pre-Commit

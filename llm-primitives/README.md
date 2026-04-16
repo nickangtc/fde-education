@@ -150,3 +150,29 @@ Run it with:
 ```bash
 npm run parallel-voting-headline-workflow
 ```
+
+## Orchestrator-workers Substack workflow demo
+
+This demo shows the smallest orchestrator-workers pattern in the repo: one
+Substack post goes to an orchestrator, the orchestrator decides which workers
+to call, and then the results come back to that same orchestrator for the final
+response.
+
+The flow is:
+
+1. Choose one of three real Substack post fixtures.
+2. Run one orchestrator planning step.
+3. Let the orchestrator choose from two worker tasks:
+   - summarize
+   - improve headline
+4. Run only the selected workers.
+5. Send the worker outputs back to the orchestrator for the final editor note.
+
+This keeps the primitive intentionally small: there is no separate synthesizer
+role, only an orchestrator that first plans and then synthesizes.
+
+Run it with:
+
+```bash
+npm run orchestrator-workers-substack-workflow
+```

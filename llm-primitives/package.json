@@ -8,7 +8,8 @@
     "content-routing-workflow": "node content-routing-workflow-cli.js",
     "model-routing-workflow": "node model-routing-workflow-cli.js",
     "parallel-sectioning-review-workflow": "node parallel-sectioning-review-workflow-cli.js",
-    "parallel-voting-headline-workflow": "node parallel-voting-headline-workflow-cli.js"
+    "parallel-voting-headline-workflow": "node parallel-voting-headline-workflow-cli.js",
+    "orchestrator-workers-substack-workflow": "node orchestrator-workers-substack-workflow-cli.js"
   },
   "dependencies": {
     "dotenv": "^17.2.3",
