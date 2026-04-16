@@ -8,7 +8,7 @@ CLI runs.
 For this package, the terminal is the interface. Environment variables stay local,
 and each chain prints its request and response steps directly in the CLI.
 
-## Prompt chaining demo
+## Prompt chaining workflow demo
 
 This demo uses the OpenAI Responses API with `gpt-5.4-mini` for two linked steps:
 
@@ -27,10 +27,10 @@ Install dependencies:
 npm install
 ```
 
-Run the prompt chain:
+Run the prompt chaining workflow:
 
 ```bash
-npm run prompt-chain
+npm run prompt-chaining-workflow
 ```
 
 The script reads `OPENAI_API_KEY` from the repo root `.env` file and prints the
@@ -39,7 +39,7 @@ observable chain directly in the terminal.
 You can also pass a custom brief and target language:
 
 ```bash
-node prompt-chain-cli.js "Album helps close friends share private family memories." "French"
+node prompt-chaining-workflow-cli.js "Album helps close friends share private family memories." "French"
 ```
 
 ## Content routing workflow demo

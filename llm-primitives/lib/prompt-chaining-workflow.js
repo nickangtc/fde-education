@@ -114,7 +114,7 @@ export async function translateMarketingCopy(copy, language) {
   return response.output_text.trim();
 }
 
-export async function runPromptChain({
+export async function runPromptChainingWorkflow({
   brief = DEFAULT_BRIEF,
   targetLanguage = DEFAULT_TARGET_LANGUAGE,
 } = {}) {
@@ -132,3 +132,5 @@ export async function runPromptChain({
     translatedCopy,
   };
 }
+
+export const runPromptChain = runPromptChainingWorkflow;

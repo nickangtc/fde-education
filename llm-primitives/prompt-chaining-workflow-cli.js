@@ -7,10 +7,17 @@ import {
   ensureMarketingShape,
   generateMarketingCopy,
   translateMarketingCopy,
-} from "./lib/prompt-chain.js";
+} from "./lib/prompt-chaining-workflow.js";
 
 const brief = process.argv[2] ?? DEFAULT_BRIEF;
 const targetLanguage = process.argv[3] ?? DEFAULT_TARGET_LANGUAGE;
+
+if (process.argv[2] === "--help" || process.argv[2] === "-h") {
+  console.log("Usage: node prompt-chaining-workflow-cli.js [brief] [target-language]");
+  console.log("");
+  console.log("Runs the prompt chaining workflow over a marketing brief.");
+  process.exit(0);
+}
 
 function printSection(title, body) {
   console.log(`\n=== ${title} ===`);
@@ -56,7 +63,7 @@ try {
 
   printSection(
     "Done",
-    `Prompt chain completed with ${OPENAI_MODEL}. Generated copy and translated it into ${targetLanguage}.`,
+    `Prompt chaining workflow completed with ${OPENAI_MODEL}. Generated copy and translated it into ${targetLanguage}.`,
   );
 } catch (error) {
   if (error?.status === 401) {
@@ -64,7 +71,7 @@ try {
       "OpenAI rejected the API key from ../.env. Double-check OPENAI_API_KEY and try again.",
     );
   } else {
-    console.error("Prompt chain failed:", error.message);
+    console.error("Prompt chaining workflow failed:", error.message);
   }
 
   process.exit(1);
