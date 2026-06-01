@@ -7,6 +7,7 @@
 - When adding multiple examples of the same primitive, use consistent workflow naming across scripts, files, and docs so the demos read as a matched set.
 - For routing demos intended for teaching, prefer small interactive menus with hard-coded examples so different branches can be exercised predictably from the terminal.
 - For CLI-based demos, add a proper `--help` path instead of letting help flags fall through as example input.
+- For JSONL datasets, validate each line with `json.loads`; `python -m json.tool` expects a single JSON document and will report `Extra data` on valid multi-line JSONL.
 - Capture reusable design insights from workflow experiments in the repo-root `learnings.md`, especially when a prompting or orchestration detail changes output quality.
 - Use the repo-local `add-learning` skill when the user asks to add, refine, or capture a learning in `learnings.md`.
 - Keep shared external references in the repo-root `resources.md`, and link to that file from sub-READMEs instead of repeating raw source links in multiple places.
