@@ -50,3 +50,16 @@ The better design was to keep track of the highest-scoring draft so far and use 
 - explicitly tell the generator to preserve praised strengths unless a revision instruction requires changing them
 
 The key lesson is that an evaluator-optimizer workflow needs a hill-climbing mechanism, not just a feedback loop. Without a best-so-far anchor, iteration can drift. With it, the scores are more likely to trend upward across rounds instead of bouncing around unpredictably.
+
+## Second-Turn RAG Needs Query Rewrite And Final-Input Debugging
+
+While building the dental clinic RAG lab in [`rag-lab/`](./rag-lab/README.md), the second user turn exposed a common RAG failure mode: follow-up messages like "Can I use glue?" are weak retrieval queries unless the system carries forward the conversational subject.
+
+The useful pattern is:
+
+- send recent chat turns, not previous retrieved documents, to a small query-rewrite step
+- rewrite the latest user message into a standalone retrieval query
+- retrieve fresh documents for that rewritten query
+- answer with recent conversation plus the freshly retrieved documents
+
+The other important lesson is observability: the debug view should show the exact final model input, not just intermediate steps. Seeing the final input makes it clear whether retrieved documents actually reached the answer model and avoids guessing when debugging RAG behavior.

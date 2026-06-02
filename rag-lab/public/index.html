@@ -1,0 +1,105 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Brightside Family Dental RAG Chatbot</title>
+    <link rel="stylesheet" href="/styles.css" />
+  </head>
+  <body>
+    <main class="app">
+      <section class="chat-shell" aria-label="Brightside Family Dental chatbot">
+        <header class="topbar">
+          <div>
+            <p class="eyebrow">Brightside Family Dental</p>
+            <h1>Patient Chat</h1>
+          </div>
+          <div class="model-pill" id="model-pill">Loading index...</div>
+        </header>
+
+        <form class="filters" id="filters">
+          <label>
+            Audience
+            <select id="audience-filter">
+              <option value="">All</option>
+            </select>
+          </label>
+          <label>
+            Category
+            <select id="category-filter">
+              <option value="">All</option>
+            </select>
+          </label>
+          <label>
+            Tag
+            <select id="tag-filter">
+              <option value="">All</option>
+            </select>
+          </label>
+        </form>
+
+        <div class="messages" id="messages" aria-live="polite">
+          <article class="message assistant">
+            <p>Hi, I can answer questions using Brightside's clinic knowledge base. I can help with scheduling, post-op instructions, insurance basics, and when to call us.</p>
+          </article>
+        </div>
+
+        <form class="composer" id="composer">
+          <input
+            id="question"
+            name="question"
+            autocomplete="off"
+            placeholder="Ask about a temporary crown, swelling, insurance, X-rays..."
+            required
+          />
+          <button type="submit">Send</button>
+        </form>
+      </section>
+
+      <aside class="retrieval-panel">
+        <div class="retrieval-header">
+          <div>
+            <p class="eyebrow">Hybrid Retrieval</p>
+            <h2 id="retrieval-title">Sources</h2>
+          </div>
+          <div class="tabs" role="tablist" aria-label="Retrieval panel">
+            <button class="tab is-active" type="button" role="tab" aria-selected="true" data-tab="sources">
+              Sources
+            </button>
+            <button class="tab" type="button" role="tab" aria-selected="false" data-tab="debug">
+              Debug
+            </button>
+          </div>
+        </div>
+        <div class="tab-panels">
+          <div id="sources-panel" class="tab-panel is-active" role="tabpanel">
+            <div id="sources" class="sources">
+              <p class="empty">Ask a question to see vector, keyword, and combined scores.</p>
+            </div>
+          </div>
+          <div id="debug-panel" class="tab-panel" role="tabpanel" hidden>
+            <div id="debug-log" class="debug-log">
+              <p class="empty">Ask a question to see the request, retrieval, and generation trace.</p>
+            </div>
+          </div>
+        </div>
+      </aside>
+    </main>
+
+    <div class="modal" id="docs-modal" hidden>
+      <div class="modal-backdrop" data-close-modal></div>
+      <section class="modal-panel" role="dialog" aria-modal="true" aria-labelledby="modal-title">
+        <header class="modal-header">
+          <div>
+            <p class="eyebrow" id="modal-eyebrow">Knowledge Base</p>
+            <h2 id="modal-title">All docs</h2>
+          </div>
+          <button class="icon-button" type="button" data-close-modal aria-label="Close">×</button>
+        </header>
+        <div class="modal-body" id="modal-body"></div>
+      </section>
+    </div>
+
+    <script src="/app.js" type="module"></script>
+  </body>
+</html>
